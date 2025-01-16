@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArgumenAI Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aqua: {
+                            base: '#00B8D9',
+                            dark: '#008AA3',
+                            light: '#33C9E6',
+                        },
+                        green: {
+                            base: '#5FB56A',
+                            dark: '#4A8F55',
+                            light: '#91D197',
+                        },
+                        grey: {
+                            black: '#212121',
+                            dark: '#424242',
+                            light: '#BDBDBD',
+                        },
+                        white: {
+                            base: '#FFFFFF',
+                            off: '#F5F5F5',
+                            light: '#EEEEEE',
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .highlight-aqua {
+            background-color: rgba(0, 184, 217, 0.1);
+            border-left: 4px solid #008AA3;
+            padding-left: 1rem;
+        }
+        .text-aqua {
+            color: #008AA3;
+        }
+        .bg-aqua {
+            background-color: #00B8D9;
+        }
+        .bg-green {
+            background-color: #5FB56A;
+        }
+        .text-grey-dark {
+            color: #424242;
+        }
+        .hover-row:hover {
+            background-color: #F5F5F5;
+        }
+    </style>
+</head>
+<body class="h-full bg-white-base text-grey-dark">
+    <div class="flex h-full">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white-base shadow-lg fixed h-full">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <i class="fa-solid fa-brain text-aqua text-2xl" aria-label="Logo"></i>
+                    <h1 class="text-xl font-bold">ArgumenAI</h1>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center space-x-3 p-3 bg-aqua text-white-base rounded-lg hover:bg-aqua-dark">
+                        <i class="fa-solid fa-gauge" aria-label="Dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 text-grey-dark hover:bg-grey-light rounded-lg">
+                        <i class="fa-solid fa-clock-rotate-left" aria-label="History"></i>
+                        <span>History</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 text-grey-dark hover:bg-grey-light rounded-lg">
+                        <i class="fa-solid fa-gear" aria-label="Settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 flex-1">
+            <!-- Header -->
+            <header class="bg-white-base shadow-sm sticky top-0 z-10">
+                <div class="flex justify-between items-center px-8 py-4">
+                    <div class="flex items-center space-x-4">
+                        <h2 class="text-2xl font-semibold">Welcome, John!</h2>
+                        <span class="text-sm text-grey-dark">Last login: Today at 9:30 AM</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <button class="relative" aria-label="Notifications">
+                            <i class="fa-regular fa-bell text-grey-dark text-xl"></i>
+                            <span class="absolute -top-1 -right-1 bg-green text-white-base text-xs w-4 h-4 rounded-full flex items-center justify-center">3</span>
+                        </button>
+                        <div class="flex items-center space-x-3">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Profile Picture" class="w-10 h-10 rounded-full border-2 border-aqua-light">
+                            <i class="fa-solid fa-chevron-down text-grey-dark text-sm" aria-label="Dropdown"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="p-8">
+                <!-- Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white-base p-6 rounded-xl shadow-sm highlight-aqua">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="p-2 bg-aqua-light bg-opacity-20 rounded-lg">
+                                <i class="fa-solid fa-chart-line text-aqua text-lg" aria-label="Weekly Analysis"></i>
+                            </div>
+                            <h3 class="font-semibold text-grey-dark text-lg">Weekly Analysis</h3>
+                        </div>
+                        <p class="text-4xl font-bold text-grey-dark mb-1">3</p>
+                        <p class="text-grey-dark text-sm flex items-center">
+                            <i class="fa-solid fa-arrow-up text-green mr-1" aria-label="Increase"></i>
+                            <span>12% from last week</span>
+                        </p>
+                    </div>
+                    <div class="bg-white-base p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="p-2 bg-green-light rounded-lg">
+                                <i class="fa-solid fa-bullseye text-green text-lg" aria-label="Success Rate"></i>
+                            </div>
+                            <h3 class="font-semibold text-grey-dark text-lg">Success Rate</h3>
+                        </div>
+                        <p class="text-4xl font-bold text-grey-dark mb-1">92%</p>
+                        <p class="text-grey-dark text-sm">Average strength score</p>
+                    </div>
+                    <div class="bg-white-base p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="p-2 bg-grey-light rounded-lg">
+                                <i class="fa-solid fa-clock text-grey-dark text-lg" aria-label="Time Saved"></i>
+                            </div>
+                            <h3 class="font-semibold text-grey-dark text-lg">Time Saved</h3>
+                        </div>
+                        <p class="text-4xl font-bold text-grey-dark mb-1">4.5h</p>
+                        <p class="text-grey-dark text-sm">This month</p>
+                    </div>
+                </div>
+
+                <!-- Upload Section -->
+                <div class="bg-white-base rounded-xl shadow-sm p-8 mb-8">
+                    <div class="border-2 border-dashed border-grey-light rounded-xl p-10 text-center bg-grey-light">
+                        <i class="fa-solid fa-cloud-arrow-up text-5xl text-aqua mb-4" aria-label="Upload"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-grey-dark">Drag and drop your argument here</h3>
+                        <p class="text-grey-dark mb-6">or</p>
+                        <button class="bg-aqua hover:bg-aqua-dark text-white-base px-8 py-3 rounded-lg transition-colors duration-200 font-medium">
+                            Upload Document
+                        </button>
+                        <p class="text-sm text-grey-dark mt-6 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-shield-check" aria-label="Secure"></i>
+                            <span>Supported formats: PDF, DOCX, TXT</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div id="recent-activity">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-grey-dark">Recent Activity</h3>
+                        <button class="text-aqua hover:text-aqua-dark text-sm font-medium">View All</button>
+                    </div>
+                    <div class="bg-white-base rounded-xl shadow-sm overflow-hidden">
+                        <table class="w-full">
+                            <thead class="bg-grey-light">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-grey-dark uppercase tracking-wider">Document</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-grey-dark uppercase tracking-wider">Date</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-grey-dark uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-grey-dark uppercase tracking-wider">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-grey-light">
+                                <tr class="hover-row">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-regular fa-file-lines text-grey-dark" aria-label="Document"></i>
+                                            <span class="font-medium">Legal Brief #123</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-grey-dark">Today, 2:30 PM</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-green-light text-green text-xs px-3 py-1 rounded-full font-medium">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-aqua hover:text-aqua-dark font-medium">View Results</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover-row">
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-regular fa-file-lines text-grey-dark" aria-label="Document"></i>
+                                            <span class="font-medium">Debate Prep</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-grey-dark">Yesterday</td>
+                                    <td class="px-6 py-4">
+                                        <span class="bg-grey-light text-grey-dark text-xs px-3 py-1 rounded-full font-medium">In Progress</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-aqua hover:text-aqua-dark font-medium">View Results</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
