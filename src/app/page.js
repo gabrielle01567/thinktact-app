@@ -1,101 +1,70 @@
-import Image from "next/image";
+import '@fontsource/poppins/400.css'; // Normal weight
+import '@fontsource/poppins/700.css'; // Bold weight
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <div style={{ fontFamily: 'Inter, sans-serif', color: '#212121' }}>
+          {/* Hero Section */}
+          <section style={{ textAlign: 'center', padding: '80px 20px', backgroundColor: '#FFFFFF' }}>
+              <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
+                  Simplify Complexity. Unlock Potential.
+              </h1>
+              <p style={{ fontSize: '1.2rem', marginBottom: '30px', color: '#424242' }}>
+                  Transform how you analyze, improve, and defend ideas with AI-powered insights.
+              </p>
+              <input
+                  type="text"
+                  placeholder="Type your argument here..."
+                  style={{
+                      padding: '10px 20px',
+                      borderRadius: '25px',
+                      border: '1px solid #9D9D9D',
+                      width: '60%',
+                      maxWidth: '400px',
+                      marginBottom: '20px'
+                  }}
+              />
+              <div>
+                  <button style={{
+                      backgroundColor: '#008BD9',
+                      color: '#FFFFFF',
+                      padding: '10px 20px',
+                      border: 'none',
+                      borderRadius: '5px',
+                      cursor: 'pointer'
+                  }}>
+                      Get Started
+                  </button>
+              </div>
+          </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          {/* Features Section */}
+          <section style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#F5F5F5' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '20px' }}>
+                  Why Choose ThinkTact.ai?
+              </h2>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
+                  <div style={{ backgroundColor: '#FFFFFF', padding: '20px', borderRadius: '10px', width: '250px' }}>
+                      <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>AI-Driven Insights</h3>
+                      <p>Analyze arguments with cutting-edge AI tools.</p>
+                  </div>
+                  <div style={{ backgroundColor: '#FFFFFF', padding: '20px', borderRadius: '10px', width: '250px' }}>
+                      <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Simplified Decision-Making</h3>
+                      <p>Make decisions faster and with greater clarity.</p>
+                  </div>
+                  <div style={{ backgroundColor: '#FFFFFF', padding: '20px', borderRadius: '10px', width: '250px' }}>
+                      <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Unshakable Arguments</h3>
+                      <p>Present ideas that are logically sound and persuasive.</p>
+                  </div>
+              </div>
+          </section>
+
+          {/* Footer */}
+          <footer style={{ textAlign: 'center', padding: '20px', backgroundColor: '#212121', color: '#FFFFFF' }}>
+              <p>© 2025 ThinkTact.ai - All Rights Reserved</p>
+          </footer>
+      </div>
   );
 }
+
